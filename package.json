@@ -1,7 +1,7 @@
 {
-  "name": "react-native-scribble",
+  "name": "@keyvaluesystems/react-native-scribble",
   "version": "0.1.0",
-  "description": "React native package to capture user scribbling on screen and converting it to an svg image",
+  "description": "React native package to capture user scribbling on screen and convert it to an svg image",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -30,7 +30,7 @@
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "clean": "del-cli lib",
+    "`clean`": "del-cli lib",
     "prepare": "bob build",
     "release": "release-it"
   },
@@ -40,7 +40,7 @@
     "android"
   ],
   "repository": "https://github.com/KeyValueSoftwareSystems/react-native-scribble",
-  "author": "Keyvalue Software Systems Pvt Ltd <nirmal@keyvalue.systems> (https://github.com/nirmalkeyvalue)",
+  "author": "Keyvalue",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/KeyValueSoftwareSystems/react-native-scribble/issues"
@@ -156,5 +156,9 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "react-native-blob-util": "^0.19.1",
+    "react-native-svg": "^13.14.0"
   }
 }
