@@ -11,9 +11,18 @@ npm install react-native-scribble
 ## Usage
 
 ```jsx
-  const signatureProps = useSignaturePad();
+  const signatureProps = useSvgCapture();
+  const { clearPad, getFilePath } = signatureProps;
 
-  <CaptureSignature {...signatureProps} />
+  const handleFileGeneration = async () => {
+    const filePath = await getFilePath();
+  };
+  // ...
+  <>
+    <SvgCapture {...signatureProps} />
+    <Button title="Clear" onClick={clearPad} />
+    <Button title="Save" onClick={handleFileGeneration} />
+  </>
 ```
 
 ## Contributing
