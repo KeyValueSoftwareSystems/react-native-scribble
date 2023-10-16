@@ -8,7 +8,7 @@ const useSvgCapture = () => {
 
   const handleSetLowestPoints = (x: number, y: number) => {
     if (x < lowestPoints.current.x) {
-      lowestPoints.current.x = y;
+      lowestPoints.current.x = x;
     }
     if (y < lowestPoints.current.y) {
       lowestPoints.current.y = y;
@@ -90,9 +90,14 @@ const useSvgCapture = () => {
     </svg>`;
   };
 
-  const getFilePath = () => {
+  const getSvgAsString = () => {
     const cleanedSvgPath = getCleanedSvgImage();
     const svgString = pathsToSVG(cleanedSvgPath);
+    return svgString;
+  };
+
+  const getFilePath = async (): Promise<string> => {
+    const svgString = getSvgAsString();
     const svgBlob = svgStringToBlob(svgString);
     return svgBlob;
   };
@@ -104,6 +109,7 @@ const useSvgCapture = () => {
     handleLayout,
     clearPad,
     getFilePath,
+    getSvgAsString,
   };
 };
 
