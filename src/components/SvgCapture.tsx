@@ -1,4 +1,5 @@
 import React from 'react';
+import type { ColorValue } from 'react-native';
 import {
   type GestureResponderEvent,
   type LayoutChangeEvent,
@@ -8,10 +9,18 @@ import {
   type StyleProp,
 } from 'react-native';
 import Svg, { G, Polyline } from 'react-native-svg';
+import {
+  DEFAULT_STROKE_COLOR,
+  DEFAULT_STROKE_WIDTH,
+} from '../constants/common';
 
 type CaptureSignatureProps = {
   paths: number[][];
   canvasStyle?: StyleProp<ViewStyle>;
+  strokeConfig?: {
+    strokeColor: ColorValue;
+    strokeWidth: number;
+  };
   handleOnTouchStart: (e: GestureResponderEvent) => void;
   handleOnTouchMove: (e: GestureResponderEvent) => void;
   handleLayout: (e: LayoutChangeEvent) => void;
@@ -20,6 +29,7 @@ type CaptureSignatureProps = {
 const SvgCapture = ({
   paths,
   canvasStyle,
+  strokeConfig,
   handleOnTouchStart,
   handleOnTouchMove,
   handleLayout,
@@ -40,8 +50,10 @@ const SvgCapture = ({
                   key={JSON.stringify(item)}
                   points={item}
                   fill="transparent"
-                  stroke="blue"
-                  strokeWidth="3"
+                  stroke={strokeConfig?.strokeColor || DEFAULT_STROKE_COLOR}
+                  strokeWidth={
+                    strokeConfig?.strokeWidth || DEFAULT_STROKE_WIDTH
+                  }
                 />
               );
             })}
