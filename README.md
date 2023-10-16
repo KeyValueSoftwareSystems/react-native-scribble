@@ -10,12 +10,10 @@ npm install react-native-scribble
 
 ## Usage
 
-```js
-import { multiply } from 'react-native-scribble';
+```jsx
+  const signatureProps = useSignaturePad();
 
-// ...
-
-const result = await multiply(3, 7);
+  <CaptureSignature {...signatureProps} />
 ```
 
 ## Contributing
