@@ -4,11 +4,14 @@ import {
   type LayoutChangeEvent,
   View,
   StyleSheet,
+  type ViewStyle,
+  type StyleProp,
 } from 'react-native';
 import Svg, { G, Polyline } from 'react-native-svg';
 
 type CaptureSignatureProps = {
   paths: number[][];
+  canvasStyle?: StyleProp<ViewStyle>;
   handleOnTouchStart: (e: GestureResponderEvent) => void;
   handleOnTouchMove: (e: GestureResponderEvent) => void;
   handleLayout: (e: LayoutChangeEvent) => void;
@@ -16,6 +19,7 @@ type CaptureSignatureProps = {
 
 const SvgCapture = ({
   paths,
+  canvasStyle,
   handleOnTouchStart,
   handleOnTouchMove,
   handleLayout,
@@ -23,7 +27,7 @@ const SvgCapture = ({
   return (
     <View style={styles.canvasAndControlWrapper}>
       <View
-        style={styles.canvas}
+        style={[styles.canvas, canvasStyle]}
         onTouchStart={handleOnTouchStart}
         onTouchMove={handleOnTouchMove}
         onLayout={handleLayout}
@@ -55,7 +59,6 @@ const styles = StyleSheet.create({
   },
   canvas: {
     flex: 1,
-    backgroundColor: '#e0e0e0',
   },
 });
 
