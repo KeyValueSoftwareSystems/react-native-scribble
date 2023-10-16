@@ -18,7 +18,7 @@ const useSvgCapture = () => {
     const { locationX, locationY } = e.nativeEvent;
     handleSetLowestPoints(locationX, locationY);
     setPaths((prev) => {
-      return [[locationX, locationY], ...prev];
+      return [[locationX, locationY, locationX + 1, locationY + 1], ...prev];
     });
   }, []);
 
