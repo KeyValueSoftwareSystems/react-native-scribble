@@ -1,6 +1,6 @@
 {
   "name": "@keyvaluesystems/react-native-scribble",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "React native package to capture user scribbling on screen and convert it to an svg image",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
