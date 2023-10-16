@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-scribble": ["./src/index"]
+      "@keyvaluesystems/react-native-scribble": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
