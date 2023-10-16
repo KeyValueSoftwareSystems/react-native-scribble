@@ -5,12 +5,14 @@ React native package to capture user scribbling on screen and converting it to a
 ## Installation
 
 ```sh
-npm install react-native-scribble
+npm i @keyvaluesystems/react-native-scribble
 ```
 
 ## Usage
 
 ```jsx
+import { SvgCapture ,useSvgCapture } from '@keyvaluesystems/react-native-scribble';
+  // ...
   const signatureProps = useSvgCapture();
   const { clearPad, getFilePath } = signatureProps;
 
@@ -18,11 +20,13 @@ npm install react-native-scribble
     const filePath = await getFilePath();
   };
   // ...
-  <>
-    <SvgCapture {...signatureProps} />
-    <Button title="Clear" onClick={clearPad} />
-    <Button title="Save" onClick={handleFileGeneration} />
-  </>
+  return (
+    <>
+      <SvgCapture {...signatureProps} />
+      <Button title="Clear" onClick={clearPad} />
+      <Button title="Save" onClick={handleFileGeneration} />
+    </>
+  );
 ```
 
 ## Contributing
